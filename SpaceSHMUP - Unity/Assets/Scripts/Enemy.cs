@@ -2,8 +2,8 @@
  * Created by: Akram Taghavi-Burris
  * Date Created: March 16, 2022
  * 
- * Last Edited by: NA
- * Last Edited: March 16, 2022
+ * Last Edited by: Thomas Nguyen
+ * Last Edited: March 28, 2022
  * 
  * Description: Enemy controler
 ****/
@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // Move();
+        Move();
 
         //Check if bounds check exists and the object is off the bottom of the screne
         if(bndCheck != null && bndCheck.offDown)
@@ -62,8 +62,8 @@ public class Enemy : MonoBehaviour
     public virtual void Move()
     {
         Vector3 tempPos = pos; //temporary position
-        tempPos.y -= speed * Time.deltaTime;
-        pos = tempPos;
+        tempPos.y -= speed * Time.deltaTime; //temporary position of y, moving down
+        pos = tempPos; //position is equal to the temporary position
     }
 
 }
