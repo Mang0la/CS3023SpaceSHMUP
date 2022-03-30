@@ -66,4 +66,21 @@ public class Enemy : MonoBehaviour
         pos = tempPos; //position is equal to the temporary position
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        GameObject otherGO = collision.gameObject;
+        if (otherGO.tag == "ProjectileHero")
+        {
+            Debug.Log("Enemy hit by Projectile Hero" + otherGO.name);
+            Destroy(otherGO);
+            Hero.SHIP.AddScore(score);
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log("Enemy hit by non-Projectile Hero" + otherGO.name);
+        }
+
+    } //end OnCollisionEnter()
+
 }
